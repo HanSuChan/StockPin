@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${spring.cloud.config.server.git.uri}
+          username: ${spring.cloud.config.server.git.username}
+          password: ${spring.cloud.config.server.git.password}
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${eureka.client.service-url.defaultZone}
