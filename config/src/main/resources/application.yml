@@ -1,15 +1,20 @@
 spring:
   application:
     name: config
+  config:
+    import: optional:file:.env[.properties]
   profiles:
-    active: git
+    active: native
+  #active: git
   cloud:
     config:
       server:
-        git:
-          uri: ${spring.cloud.config.server.git.uri}
-          username: ${spring.cloud.config.server.git.username}
-          password: ${spring.cloud.config.server.git.password}
+        native:
+          search-locations: file:../StockPin/config/src/main/resources/configfiles/
+#        git:
+#          uri: ${spring.cloud.config.server.git.uri}
+#          username: ${spring.cloud.config.server.git.username}
+#          password: ${spring.cloud.config.server.git.password}
 
 server:
   port: 8888
@@ -19,4 +24,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: ${eureka.client.service-url.defaultZone}
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
