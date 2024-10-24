@@ -1,0 +1,12 @@
+server:
+  port: ${EUREKA_SERVER_PORT}
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

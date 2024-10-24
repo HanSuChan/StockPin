@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-deploy
+  config:
+    import: optional:file:.env[.properties]
+    activate:
+      on-profile: deploy
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:../StockPin/config/src/main/resources/configfiles/deploy/
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+server:
+  port: 8888
