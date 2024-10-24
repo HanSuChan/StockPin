@@ -3,5 +3,3 @@ spring:
     group:
       dev: "native"
       deploy: "native"
-server:
-  port: 9991

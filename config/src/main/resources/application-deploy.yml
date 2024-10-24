@@ -17,4 +17,4 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_DEFAULT_ZONE}
 server:
-  port: 8888
+  port: ${CONFIG_SERVER_PORT}
